@@ -18,10 +18,13 @@ var commentRoutes		= require("./routes/comments"),
 	campgroundsRoutes	= require("./routes/campgrounds"),
 	indexRoutes			= require("./routes/index")	
 
+
 mongoose.set('useCreateIndex', true);
-mongoose.connect("mongodb+srv://Violina:Gomes219.@cluster0-az38x.mongodb.net/yelp_camp?retryWrites=true&w=majority",  {useNewUrlParser: true, useUnifiedTopology: true});
-//("mongodb://127.0.0.1:27017/yelp_camp_v15", {useNewUrlParser: true, useUnifiedTopology: true});
-//("mongodb+srv://Violina:Gomes219.@cluster0-az38x.mongodb.net/yelp_camp_v15?retryWrites=true&w=majority");
+//mongoose.connect("mongodb+srv://Violina:Gomes219.@cluster0-az38x.mongodb.net/yelp_camp?retryWrites=true&w=majority",  {useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect("mongodb://127.0.0.1:27017/yelp_camp_v15", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useUnifiedTopology: true});
+
+
 app.use(bodyPasrer.urlencoded({ extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
