@@ -22,7 +22,8 @@ var commentRoutes		= require("./routes/comments"),
 mongoose.set('useCreateIndex', true);
 //mongoose.connect("mongodb+srv://Violina:Gomes219.@cluster0-az38x.mongodb.net/yelp_camp?retryWrites=true&w=majority",  {useNewUrlParser: true, useUnifiedTopology: true});
 //mongoose.connect("mongodb://127.0.0.1:27017/yelp_camp_v15", {useNewUrlParser: true, useUnifiedTopology: true});
-mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useUnifiedTopology: true});
+var url = process.env.DATABASEURL || "mongodb://127.0.0.1:27017/yelp_camp_v15";
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 app.use(bodyPasrer.urlencoded({ extended: true}));
