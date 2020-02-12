@@ -24,7 +24,7 @@ router.post("/register", function(req, res){
 		firstName: req.body.firstName,
 		lastName: req.body.lastName,
 		email: req.body.email,
-		avatar: req.body.avatar
+		avatar: req.body.avatar,
 	});
 	
 	if(req.body.adminCode === "secretcode123") {
@@ -45,15 +45,17 @@ router.post("/register", function(req, res){
 
 //show login form
 router.get("/login", function(req, res){
-   res.render("login", {page: 'login'}); 
+   res.render("login", { page: 'login' }); 
 });
 
 //handle LOGIN logic
-router.post("/login", passport.authenticate("local",
-	{
-	successRedirect: "/campgrounds",
-	failureRedirect: "/forgot"
-	}), function(req, res){
+router.post("/login", passport.authenticate("local", 
+  {
+    successRedirect: "/campgrounds",
+    successFlash: "Login successful!",
+    failureRedirect: "/forgot",
+    failureFlash: true
+  }), function(req, res) {
 });
 
 //LOGOUT route

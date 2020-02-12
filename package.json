@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"start": "node app.js"  
+    "start": "node app.js"
   },
   "author": "Violina Nakova",
   "license": "ISC",
@@ -21,7 +21,8 @@
     "locus": "^2.0.1",
     "method-override": "^3.0.0",
     "moment": "^2.24.0",
-    "mongoose": "^5.6.11",
+    "mongodb": "^3.5.3",
+    "mongoose": "^5.8.11",
     "multer": "^1.4.2",
     "node-geocoder": "^3.24.0",
     "nodemailer": "^6.3.1",
